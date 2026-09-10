@@ -1,0 +1,114 @@
+Script started on 2026-09-10 13:48:28+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="262" LINES="69"]
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ nginx -v
+[?2004lnginx version: nginx/1.24.0 (Ubuntu)
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ systemctl status nginx
+[?2004l[?1h=○ nginx.service - A high performance web server and a reverse proxy server[m
+     Loaded: loaded (]8;;file://codeby-lesson4/usr/lib/systemd/system/nginx.service/usr/lib/systemd/system/nginx.service]8;;; [0;1;38;5;185mdisabled[0m; preset: [0;1;32menabled[0m)[m
+     Active: inactive (dead)[m
+       Docs: ]8;;man:nginx(8)man:nginx(8)]8;;[m
+[m
+Sep 10 13:42:26 codeby-lesson4 systemd[1]: Starting nginx.service - A high performance web server and a reverse proxy server...[m
+Sep 10 13:42:26 codeby-lesson4 systemd[1]: Started nginx.service - A high performance web server and a reverse proxy server.[m
+Sep 10 13:43:33 codeby-lesson4 systemd[1]: Stopping nginx.service - A high performance web server and a reverse proxy server...[m
+Sep 10 13:43:33 codeby-lesson4 systemd[1]: nginx.service: Deactivated successfully.[m
+Sep 10 13:43:33 codeby-lesson4 systemd[1]: Stopped nginx.service - A high performance web server and a reverse proxy server.[m
+[K[?1l>[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ systemctl status nginx[1P nginx[1P nginx[1P nginx[1P nginx[1P nginx[1P nginxi nginxs nginx- nginxe nginxn nginxa nginxb nginxl nginxe nginxs nginx[1P nginxd nginx
+[?2004ldisabled
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ sudo mv ~/codeby-
+codeby-devops/        codeby-nginx.service  
+]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ sudo mv ~/codeby-nginx.service /etc/systemd//
+journald.conf      network/           oomd.conf          resolved.conf      system/            system-generators/ user/              
+logind.conf        networkd.conf      pstore.conf        sleep.conf         system.conf        timesyncd.conf     user.conf          
+]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ sudo mv ~/codeby-nginx.service /etc/systemd//[K
+journald.conf      network/           oomd.conf          resolved.conf      system/            system-generators/ user/              
+logind.conf        networkd.conf      pstore.conf        sleep.conf         system.conf        timesyncd.conf     user.conf          
+]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ sudo mv ~/codeby-nginx.service /etc/systemd/system/
+[?2004l[sudo] password for anxlime: 
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ (reverse-i-search)`': [Kc': sudo mv ~/codeby-nginx.service /et[7mc[27m/systemd/system/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[29Pa': curl http://lo[7mca[27mlhostt': [7mcat[27m /etc/systemd/system/codeby-nginx.service[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ cat /etc/systemd/system/codeby-nginx.service[C
+[?2004l[Unit]
+Description=Custom nginx for codeby lesson4
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/nginx
+ExecReload=/usr/sbin/nginx -s reload
+ExecStop=/usr/sbin/nginx -s quit
+
+[Install]
+WantedBy=multi-user.target
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ (reverse-i-search)`': [Kd': cat /etc/systemd/system/co[7md[27meby-nginx.service[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[15Pa': sudo systemctl [7mda[27memon-reloade': sudo systemctl [7mdae[27mmon-reload]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ sudo systemctl daemon-reload[C
+[?2004l[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ systemctl status codeby-nginx.service 
+[?2004l[?1h=○ codeby-nginx.service - Custom nginx for codeby lesson4[m
+     Loaded: loaded (]8;;file://codeby-lesson4/etc/systemd/system/codeby-nginx.service/etc/systemd/system/codeby-nginx.service]8;;; [0;1;38;5;185mdisabled[0m; preset: [0;1;32menabled[0m)[m
+     Active: inactive (dead)[m
+[m
+Sep 10 13:41:26 codeby-lesson4 systemd[1]: Starting codeby-nginx.service - Custom nginx for codeby lesson4...[m
+Sep 10 13:41:26 codeby-lesson4 systemd[1]: [0;1;39m[0;1;31m[0;1;39mcodeby-nginx.service: Control process exited, code=exited, status=203/EXEC[0m[m
+Sep 10 13:41:26 codeby-lesson4 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mcodeby-nginx.service: Failed with result 'exit-code'.[0m[m
+Sep 10 13:41:26 codeby-lesson4 systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start codeby-nginx.service - Custom nginx for codeby lesson4.[0m[m
+Sep 10 13:45:09 codeby-lesson4 systemd[1]: Starting codeby-nginx.service - Custom nginx for codeby lesson4...[m
+Sep 10 13:45:09 codeby-lesson4 systemd[1]: Started codeby-nginx.service - Custom nginx for codeby lesson4.[m
+Sep 10 13:46:54 codeby-lesson4 systemd[1]: Stopping codeby-nginx.service - Custom nginx for codeby lesson4...[m
+Sep 10 13:46:54 codeby-lesson4 nginx[7571]: 2026/09/10 13:46:54 [notice] 7571#7571: signal process started[m
+Sep 10 13:46:54 codeby-lesson4 systemd[1]: codeby-nginx.service: Deactivated successfully.[m
+Sep 10 13:46:54 codeby-lesson4 systemd[1]: Stopped codeby-nginx.service - Custom nginx for codeby lesson4.[m
+[K[?1l>[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ systemctl status codeby-nginx.service [1P[1P[1P[1P[1@a[1@r[1@t[C[1@s[1@u[1@d[1@o[1@ 
+[?2004l[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ sudo systemctl start codeby-nginx.service [4Pystemctl status[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l[?1h=[0;1;32m●[0m codeby-nginx.service - Custom nginx for codeby lesson4[m
+     Loaded: loaded (]8;;file://codeby-lesson4/etc/systemd/system/codeby-nginx.service/etc/systemd/system/codeby-nginx.service]8;;; [0;1;38;5;185mdisabled[0m; preset: [0;1;32menabled[0m)[m
+     Active: [0;1;32mactive (running)[0m since Thu 2026-09-10 13:50:05 CEST; 2s ago[m
+    Process: 8141 ExecStart=/usr/sbin/nginx (code=exited, status=0/SUCCESS)[m
+   Main PID: 8143 (nginx)[m
+      Tasks: 5 (limit: 7957)[m
+     Memory: 3.7M (peak: 4.2M)[m
+        CPU: 17ms[m
+     CGroup: /system.slice/codeby-nginx.service[m
+             ├─[0;38;5;245m8143 "nginx: master process /usr/sbin/nginx"[0m[m
+             ├─[0;38;5;245m8144 "nginx: worker process"[0m[m
+             ├─[0;38;5;245m8145 "nginx: worker process"[0m[m
+             ├─[0;38;5;245m8146 "nginx: worker process"[0m[m
+             └─[0;38;5;245m8147 "nginx: worker process"[0m[m
+[m
+Sep 10 13:50:05 codeby-lesson4 systemd[1]: Starting codeby-nginx.service - Custom nginx for codeby lesson4...[m
+Sep 10 13:50:05 codeby-lesson4 systemd[1]: Started codeby-nginx.service - Custom nginx for codeby lesson4.[m
+[K[?1l>[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ (reverse-i-search)`': [K[39@c': systemctl status codeby-nginx.servi[7mc[27me[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[16Pu': [7mcu[27mrl http://localhost[1@r': [7mcur[27m]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ curl http://localhost[C
+[?2004l<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+html { color-scheme: light dark; }
+body { width: 35em; margin: 0 auto;
+font-family: Tahoma, Verdana, Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ curl http://localhostsystemctl status codeby-nginx.service [4@udo systemctl start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[1@e[1@n[1@a[1@b[1@l[1@e[1@ 
+[?2004lCreated symlink /etc/systemd/system/multi-user.target.wants/codeby-nginx.service → /etc/systemd/system/codeby-nginx.service.
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ sudo systemctl enable codeby-nginx.service [22Pcurl http://localhostsystemctl status codeby-nginx.service [4@udo systemctl start[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pystemctl status[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[1P[1@i[1@s[1@-[1@e[1@n[1@a[1@b[1@l[1@e[1@d[1@ [C[1@s[1@u[1@d[1@o[1@ 
+[?2004lenabled
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ ps aux | grep nginx
+[?2004lanxlime     7917  0.0  0.0   8312  2340 pts/0    S+   13:48   0:00 script [01;31m[Knginx[m[K-log.txt
+root        8143  0.0  0.0  11172  1892 ?        Ss   13:50   0:00 [01;31m[Knginx[m[K: master process /usr/sbin/[01;31m[Knginx[m[K
+www-data    8144  0.0  0.0  12948  5092 ?        S    13:50   0:00 [01;31m[Knginx[m[K: worker process
+www-data    8145  0.0  0.0  12948  4656 ?        S    13:50   0:00 [01;31m[Knginx[m[K: worker process
+www-data    8146  0.0  0.0  12948  4752 ?        S    13:50   0:00 [01;31m[Knginx[m[K: worker process
+www-data    8147  0.0  0.0  12948  4656 ?        S    13:50   0:00 [01;31m[Knginx[m[K: worker process
+anxlime     8296  0.0  0.0   9152  2392 pts/2    S+   13:50   0:00 grep --color=auto [01;31m[Knginx[m[K
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ ps aux | grep nginx[Kexit
+[?2004lexit
+
+Script done on 2026-09-10 13:51:15+02:00 [COMMAND_EXIT_CODE="0"]
