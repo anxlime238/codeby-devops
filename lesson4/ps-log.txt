@@ -1,0 +1,345 @@
+Script started on 2026-09-10 13:05:20+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="262" LINES="69"]
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ ps -eF
+[?2004lUID          PID    PPID  C    SZ   RSS PSR STIME TTY          TIME CMD
+root           1       0  0  5760 14476   2 12:19 ?        00:00:03 /sbin/init splash
+root           2       0  0     0     0   0 12:19 ?        00:00:00 [kthreadd]
+root           3       2  0     0     0   3 12:19 ?        00:00:00 [pool_workqueue_release]
+root           4       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-rcu_gp]
+root           5       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-sync_wq]
+root           6       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-kvfree_rcu_reclaim]
+root           7       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-slub_flushwq]
+root           8       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-netns]
+root          10       2  0     0     0   0 12:19 ?        00:00:00 [kworker/0:0H-kblockd]
+root          12       2  0     0     0   0 12:19 ?        00:00:00 [kworker/u16:0-ipv6_addrconf]
+root          13       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-mm_percpu_wq]
+root          14       2  0     0     0   0 12:19 ?        00:00:00 [ksoftirqd/0]
+root          15       2  0     0     0   2 12:19 ?        00:00:02 [rcu_preempt]
+root          16       2  0     0     0   0 12:19 ?        00:00:00 [rcu_exp_par_gp_kthread_worker/0]
+root          17       2  0     0     0   3 12:19 ?        00:00:00 [rcu_exp_gp_kthread_worker]
+root          18       2  0     0     0   0 12:19 ?        00:00:00 [migration/0]
+root          19       2  0     0     0   0 12:19 ?        00:00:00 [kprobe-optimizer]
+root          20       2  0     0     0   0 12:19 ?        00:00:00 [idle_inject/0]
+root          21       2  0     0     0   0 12:19 ?        00:00:00 [cpuhp/0]
+root          22       2  0     0     0   1 12:19 ?        00:00:00 [cpuhp/1]
+root          23       2  0     0     0   1 12:19 ?        00:00:00 [idle_inject/1]
+root          24       2  0     0     0   1 12:19 ?        00:00:00 [migration/1]
+root          25       2  0     0     0   1 12:19 ?        00:00:00 [ksoftirqd/1]
+root          27       2  0     0     0   1 12:19 ?        00:00:00 [kworker/1:0H-kblockd]
+root          28       2  0     0     0   2 12:19 ?        00:00:00 [cpuhp/2]
+root          29       2  0     0     0   2 12:19 ?        00:00:00 [idle_inject/2]
+root          30       2  0     0     0   2 12:19 ?        00:00:00 [migration/2]
+root          31       2  0     0     0   2 12:19 ?        00:00:01 [ksoftirqd/2]
+root          33       2  0     0     0   2 12:19 ?        00:00:00 [kworker/2:0H-kblockd]
+root          34       2  0     0     0   3 12:19 ?        00:00:00 [cpuhp/3]
+root          35       2  0     0     0   3 12:19 ?        00:00:00 [idle_inject/3]
+root          36       2  0     0     0   3 12:19 ?        00:00:00 [migration/3]
+root          37       2  0     0     0   3 12:19 ?        00:00:03 [ksoftirqd/3]
+root          39       2  0     0     0   3 12:19 ?        00:00:00 [kworker/3:0H-kblockd]
+root          40       2  0     0     0   0 12:19 ?        00:00:00 [kworker/u17:0-events_power_efficient]
+root          44       2  0     0     0   2 12:19 ?        00:00:00 [kdevtmpfs]
+root          45       2  0     0     0   2 12:19 ?        00:00:00 [kworker/R-inet_frag_wq]
+root          46       2  0     0     0   2 12:19 ?        00:00:00 [rcu_tasks_kthread]
+root          47       2  0     0     0   2 12:19 ?        00:00:00 [rcu_tasks_rude_kthread]
+root          48       2  0     0     0   2 12:19 ?        00:00:00 [kauditd]
+root          49       2  0     0     0   2 12:19 ?        00:00:00 [khungtaskd]
+root          50       2  0     0     0   3 12:19 ?        00:00:00 [oom_reaper]
+root          51       2  0     0     0   0 12:19 ?        00:00:01 [kworker/u17:1-flush-8:0]
+root          52       2  0     0     0   3 12:19 ?        00:00:00 [kworker/R-writeback]
+root          54       2  0     0     0   2 12:19 ?        00:00:02 [kcompactd0]
+root          55       2  0     0     0   3 12:19 ?        00:00:00 [ksmd]
+root          56       2  0     0     0   3 12:19 ?        00:00:00 [khugepaged]
+root          57       2  0     0     0   3 12:19 ?        00:00:00 [kworker/R-kblockd]
+root          58       2  0     0     0   3 12:19 ?        00:00:00 [kworker/R-blkcg_punt_bio]
+root          59       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-kintegrityd]
+root          60       2  0     0     0   1 12:19 ?        00:00:00 [irq/9-acpi]
+root          64       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-tpm_dev_wq]
+root          65       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-ata_sff]
+root          66       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-md_bitmap]
+root          67       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-md_llbitmap_io]
+root          68       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-md_llbitmap_unplug]
+root          69       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-edac-poller]
+root          70       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-devfreq_wq]
+root          71       2  0     0     0   0 12:19 ?        00:00:00 [watchdogd]
+root          72       2  0     0     0   2 12:19 ?        00:00:00 [kworker/R-quota_events_unbound]
+root          74       2  0     0     0   0 12:19 ?        00:00:00 [kswapd0]
+root          75       2  0     0     0   1 12:19 ?        00:00:00 [kworker/u18:1-events_power_efficient]
+root          76       2  0     0     0   0 12:19 ?        00:00:00 [ecryptfs-kthread]
+root          77       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-kthrotld]
+root          78       2  0     0     0   2 12:19 ?        00:00:00 [kworker/R-acpi_thermal_pm]
+root          79       2  0     0     0   2 12:19 ?        00:00:00 [kworker/u19:1-events_power_efficient]
+root          80       2  0     0     0   2 12:19 ?        00:00:00 [kworker/u19:2-events_power_efficient]
+root          82       2  0     0     0   0 12:19 ?        00:00:00 [scsi_eh_0]
+root          83       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-scsi_tmf_0]
+root          84       2  0     0     0   2 12:19 ?        00:00:00 [scsi_eh_1]
+root          85       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-scsi_tmf_1]
+root          86       2  0     0     0   3 12:19 ?        00:00:02 [kworker/u20:2-writeback]
+root          87       2  0     0     0   3 12:19 ?        00:00:01 [kworker/u20:3-events_power_efficient]
+root          90       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-mld]
+root          91       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-ipv6_addrconf]
+root          92       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-kstrp]
+root          93       2  0     0     0   1 12:19 ?        00:00:00 [kworker/u16:1-ipv6_addrconf]
+root          97       2  0     0     0   2 12:19 ?        00:00:00 [kworker/2:1H-kblockd]
+root          98       2  0     0     0   0 12:19 ?        00:00:00 [kworker/u21:0]
+root          99       2  0     0     0   0 12:19 ?        00:00:00 [kworker/u22:0]
+root         100       2  0     0     0   0 12:19 ?        00:00:00 [kworker/u23:0]
+root         101       2  0     0     0   0 12:19 ?        00:00:00 [kworker/u24:0]
+root         102       2  0     0     0   0 12:19 ?        00:00:00 [kworker/u25:0]
+root         113       2  0     0     0   0 12:19 ?        00:00:00 [kworker/R-charger_manager]
+root         178       2  0     0     0   2 12:19 ?        00:00:00 [scsi_eh_2]
+root         179       2  0     0     0   1 12:19 ?        00:00:00 [kworker/R-scsi_tmf_2]
+root         218       2  0     0     0   0 12:19 ?        00:00:00 [kworker/0:1H-kblockd]
+root         224       2  0     0     0   0 12:19 ?        00:00:01 [jbd2/sda2-8]
+root         225       2  0     0     0   3 12:19 ?        00:00:00 [kworker/R-ext4-rsv-conversion]
+root         275       1  0 12780 18320   0 12:19 ?        00:00:01 /usr/lib/systemd/systemd-journald
+root         327       2  0     0     0   1 12:19 ?        00:00:00 [kworker/u18:2-events_unbound]
+root         333       2  0     0     0   2 12:19 ?        00:00:00 [kworker/u18:3-events_power_efficient]
+root         343       2  0     0     0   2 12:19 ?        00:00:00 [irq/18-vmwgfx]
+root         344       2  0     0     0   1 12:19 ?        00:00:00 [kworker/R-ttm]
+root         347       1  0  7719  8908   3 12:19 ?        00:00:00 /usr/lib/systemd/systemd-udevd
+root         374       2  0     0     0   0 12:19 ?        00:00:00 [kworker/u17:3-events_unbound]
+systemd+     388       1  0  4394  7796   2 12:19 ?        00:00:01 /usr/lib/systemd/systemd-oomd
+systemd+     393       1  0  5404 13836   3 12:19 ?        00:00:00 /usr/lib/systemd/systemd-resolved
+systemd+     394       1  0 22766  8060   2 12:19 ?        00:00:00 /usr/lib/systemd/systemd-timesyncd
+root         410       2  0     0     0   0 12:19 ?        00:00:00 [psimon]
+avahi        609       1  0  2170  4768   2 12:19 ?        00:00:00 avahi-daemon: running [anxlime-VirtualBox.local]
+message+     610       1  0  3029  7336   0 12:19 ?        00:00:01 @dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+gnome-r+     614       1  0 91341 16952   3 12:19 ?        00:00:00 /usr/libexec/gnome-remote-desktop-daemon --system
+polkitd      642       1  0 97697 12348   0 12:19 ?        00:00:01 /usr/lib/polkit-1/polkitd --no-debug
+root         646       1  0 481256 41872  1 12:19 ?        00:00:01 /usr/lib/snapd/snapd
+root         659       1  0 78326  8068   0 12:19 ?        00:00:00 /usr/libexec/accounts-daemon
+root         664       1  0  2358  3044   2 12:19 ?        00:00:00 /usr/sbin/cron -f -P
+root         669       1  0 77472  7176   0 12:19 ?        00:00:00 /usr/libexec/switcheroo-control
+root         676       1  0  4541  9156   2 12:19 ?        00:00:00 /usr/lib/systemd/systemd-logind
+root         678       1  0 117348 14144  2 12:19 ?        00:00:00 /usr/libexec/udisks2/udisksd
+avahi        689     609  0  2123  1656   0 12:19 ?        00:00:00 avahi-daemon: chroot helper
+root         732       1  0 84087 19796   2 12:19 ?        00:00:00 /usr/sbin/NetworkManager --no-daemon
+root         736       1  0  4349  6692   2 12:19 ?        00:00:00 /usr/sbin/wpa_supplicant -u -s -O DIR=/run/wpa_supplicant GROUP=netdev
+syslog       749       1  0 55644  6420   3 12:19 ?        00:00:00 /usr/sbin/rsyslogd -n -iNONE
+root         808       1  0 98027 13112   2 12:19 ?        00:00:00 /usr/sbin/ModemManager
+root         835       2  0     0     0   3 12:19 ?        00:00:01 [kworker/3:2H-kblockd]
+root        1085       1  0  9605 12496   3 12:19 ?        00:00:00 /usr/sbin/cupsd -l
+root        1092       1  0 28065 23356   2 12:19 ?        00:00:00 /usr/bin/python3 /usr/share/unattended-upgrades/unattended-upgrade-shutdown --wait-for-signal
+lp          1101    1085  0  4212  7080   0 12:19 ?        00:00:00 /usr/lib/cups/notifier/dbus dbus://
+root        1103       1  0  3007  8384   3 12:19 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+lp          1104    1085  0  4212  7060   3 12:19 ?        00:00:00 /usr/lib/cups/notifier/dbus dbus://
+lp          1105    1085  0  4212  7148   1 12:19 ?        00:00:00 /usr/lib/cups/notifier/dbus dbus://
+lp          1106    1085  0  4212  7148   1 12:19 ?        00:00:00 /usr/lib/cups/notifier/dbus dbus://
+cups-br+    1109       1  0 67126 20648   0 12:19 ?        00:00:00 /usr/sbin/cups-browsed
+root        1111       1  0 78708  9708   1 12:19 ?        00:00:00 /usr/sbin/gdm3
+kernoops    1116       1  0  3189  2544   2 12:19 ?        00:00:00 /usr/sbin/kerneloops --test
+kernoops    1122       1  0  3189  2632   1 12:19 ?        00:00:00 /usr/sbin/kerneloops
+root        1124    1111  0 97435 10836   2 12:19 ?        00:00:00 gdm-session-worker [pam/gdm-autologin]
+root        1133       2  0     0     0   0 12:19 ?        00:00:00 [psimon]
+anxlime     1135       1  0  5287 12736   2 12:19 ?        00:00:01 /usr/lib/systemd/systemd --user
+anxlime     1136    1135  0  5371  3812   1 12:19 ?        00:00:00 (sd-pam)
+anxlime     1144    1135  0 28985 15348   0 12:19 ?        00:00:03 /usr/bin/pipewire
+anxlime     1147    1135  0 24437  6164   1 12:19 ?        00:00:00 /usr/bin/pipewire -c filter-chain.conf
+anxlime     1151    1135  0 101711 18988  3 12:19 ?        00:00:00 /usr/bin/wireplumber
+anxlime     1152    1135  0 29449 16096   2 12:19 ?        00:00:00 /usr/bin/pipewire-pulse
+anxlime     1153    1135  0 115998 10872  3 12:19 ?        00:00:00 /usr/bin/gnome-keyring-daemon --foreground --components=pkcs11,secrets --control-directory=/run/user/1000/keyring
+anxlime     1159    1135  0  2743  6848   1 12:19 ?        00:00:01 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+rtkit       1175       1  0  5738  3656   1 12:19 ?        00:00:00 /usr/libexec/rtkit-daemon
+anxlime     1179    1135  0 152576 7740   2 12:19 ?        00:00:00 /usr/libexec/xdg-document-portal
+anxlime     1183    1124  0 58919  6372   2 12:19 tty2     00:00:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+anxlime     1190    1135  0 77329  6404   0 12:19 ?        00:00:00 /usr/libexec/xdg-permission-store
+anxlime     1196    1183  0 74562 16908   1 12:19 tty2     00:00:00 /usr/libexec/gnome-session-binary --session=ubuntu
+root        1215    1179  0   678  2100   2 12:19 ?        00:00:00 fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc
+anxlime     1272    1135  0 40666  7180   0 12:19 ?        00:00:00 /usr/libexec/gcr-ssh-agent --base-dir /run/user/1000/gcr
+anxlime     1273    1135  0 22890  5840   3 12:19 ?        00:00:00 /usr/libexec/gnome-session-ctl --monitor
+anxlime     1287    1135  0 78574  8224   2 12:19 ?        00:00:00 /usr/libexec/gvfsd
+anxlime     1307    1135  0 114929 7396   0 12:19 ?        00:00:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
+anxlime     1312    1135  0 166990 18692  1 12:19 ?        00:00:00 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu
+anxlime     1377    1312  0 95737  8140   1 12:19 ?        00:00:00 /usr/libexec/at-spi-bus-launcher --launch-immediately
+anxlime     1378    1135 11 1260500 607848 0 12:19 ?       00:05:07 /usr/bin/gnome-shell
+anxlime     1396    1377  0  2374  5400   2 12:19 ?        00:00:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus
+anxlime     1428    1135  0 59020  7796   2 12:19 ?        00:00:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+colord      1429       1  0 80008 14720   0 12:19 ?        00:00:00 /usr/libexec/colord
+anxlime     1457    1135  0 163985 22640  2 12:19 ?        00:00:00 /usr/libexec/gnome-shell-calendar-server
+anxlime     1468    1135  0 149998 43268  3 12:19 ?        00:00:00 /usr/libexec/evolution-source-registry
+anxlime     1469    1135  0  9740 12204   3 12:19 ?        00:00:00 /snap/snapd-desktop-integration/157/usr/bin/snapd-desktop-integration
+root        1483       1  0 79203  9416   2 12:19 ?        00:00:01 /usr/libexec/upowerd
+anxlime     1487    1135  0 649294 27256  0 12:19 ?        00:00:00 /usr/bin/gjs -m /usr/share/gnome-shell/org.gnome.Shell.Notifications
+anxlime     1495    1135  0 97212 12556   2 12:19 ?        00:00:05 /usr/bin/ibus-daemon --panel disable
+anxlime     1497    1135  0 95881  6884   3 12:19 ?        00:00:00 /usr/libexec/gsd-a11y-settings
+anxlime     1502    1135  0 103271 21056  1 12:19 ?        00:00:00 /usr/libexec/gsd-color
+anxlime     1507    1135  0 107920 12524  2 12:19 ?        00:00:00 /usr/libexec/gsd-datetime
+anxlime     1517    1135  0 96284  8196   2 12:19 ?        00:00:00 /usr/libexec/gsd-housekeeping
+anxlime     1520    1135  0 121375 20364  1 12:19 ?        00:00:00 /usr/libexec/gsd-keyboard
+anxlime     1523    1135  0 148527 26144  1 12:19 ?        00:00:00 /usr/libexec/gsd-media-keys
+anxlime     1525    1135  0 149313 25016  0 12:19 ?        00:00:00 /usr/libexec/gsd-power
+anxlime     1528    1135  0 80943 11860   2 12:19 ?        00:00:00 /usr/libexec/gsd-print-notifications
+anxlime     1535    1135  0 132773 6936   1 12:19 ?        00:00:00 /usr/libexec/gsd-rfkill
+anxlime     1538    1135  0 77392  6404   1 12:19 ?        00:00:00 /usr/libexec/gsd-screensaver-proxy
+anxlime     1540    1135  0 135800 12036  3 12:19 ?        00:00:00 /usr/libexec/gsd-sharing
+anxlime     1541    1135  0 96456  8516   0 12:19 ?        00:00:00 /usr/libexec/gsd-smartcard
+anxlime     1544    1378  0 61285 68860   2 12:19 ?        00:00:00 /usr/bin/Xwayland :0 -rootless -noreset -accessx -core -auth /run/user/1000/.mutter-Xwaylandauth.W9CQV3 -listenfd 4 -listenfd 5 -displayfd 6 -initfd 7 -byteswappedclients
+anxlime     1545    1135  0 98412  9888   1 12:19 ?        00:00:00 /usr/libexec/gsd-sound
+anxlime     1546    1135  0 121619 21364  2 12:19 ?        00:00:00 /usr/libexec/gsd-wacom
+anxlime     1583    1312  0 76375  7488   3 12:19 ?        00:00:00 /usr/libexec/gsd-disk-utility-notify
+anxlime     1645    1312  0 207729 64508  1 12:19 ?        00:00:00 /usr/libexec/evolution-data-server/evolution-alarm-notify
+anxlime     1672    1495  0 77617  7472   2 12:19 ?        00:00:00 /usr/libexec/ibus-dconf
+anxlime     1674    1495  0 105384 30376  2 12:19 ?        00:00:03 /usr/libexec/ibus-extension-gtk3
+anxlime     1705    1135  0 77608  7448   2 12:19 ?        00:00:00 /usr/libexec/ibus-portal
+anxlime     1733    1135  0 136672 24740  0 12:19 ?        00:00:00 /usr/libexec/goa-daemon
+anxlime     1748    1135  0 97299 10584   1 12:19 ?        00:00:00 /usr/libexec/gvfs-udisks2-volume-monitor
+anxlime     1757    1135  0 104063 15580  3 12:19 ?        00:00:00 /usr/libexec/gsd-printer
+anxlime     1781    1135  0 222684 25212  3 12:19 ?        00:00:00 /usr/libexec/evolution-calendar-factory
+anxlime     1787    1135  0 97283  9564   1 12:19 ?        00:00:00 /usr/libexec/goa-identity-service
+anxlime     1795    1469  0 107361 31116  1 12:19 ?        00:00:00 /snap/snapd-desktop-integration/157/usr/bin/snapd-desktop-integration
+anxlime     1798    1135  0 77445  6676   1 12:19 ?        00:00:00 /usr/libexec/gvfs-goa-volume-monitor
+anxlime     1804    1135  0 77450  6692   2 12:19 ?        00:00:00 /usr/libexec/gvfs-mtp-volume-monitor
+anxlime     1817    1135  0 97347  8260   1 12:19 ?        00:00:00 /usr/libexec/gvfs-afc-volume-monitor
+anxlime     1833    1135  0 77692  7108   3 12:19 ?        00:00:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+anxlime     1838    1135  0 187902 30860  2 12:19 ?        00:00:00 /usr/libexec/evolution-addressbook-factory
+anxlime     1865    1495  0 59194  7708   3 12:19 ?        00:00:01 /usr/libexec/ibus-engine-simple
+anxlime     1886    1135  0 57529  6040   2 12:19 ?        00:00:00 /usr/libexec/dconf-service
+anxlime     1907    1287  0 152363 9328   1 12:19 ?        00:00:00 /usr/libexec/gvfsd-trash --spawner :1.19 /org/gtk/gvfs/exec_spaw/0
+anxlime     1918    1135  0 160572 84520  2 12:19 ?        00:00:00 /usr/libexec/gsd-xsettings
+anxlime     1935    1135  0 649272 27672  1 12:19 ?        00:00:00 /usr/bin/gjs -m /usr/share/gnome-shell/org.gnome.ScreenSaver
+anxlime     1994    1135  0 66790 25112   1 12:19 ?        00:00:00 /usr/libexec/ibus-x11
+anxlime     2001    1135  0 220732 27288  2 12:19 ?        00:00:00 /usr/libexec/tracker-miner-fs-3
+anxlime     2002    1135  0 175411 15140  3 12:19 ?        00:00:00 /usr/libexec/xdg-desktop-portal
+anxlime     2005    1378  0 353652 103736 1 12:19 ?        00:00:00 /usr/libexec/mutter-x11-frames
+anxlime     2016    1135  0 139082 41172  3 12:19 ?        00:00:00 /usr/libexec/xdg-desktop-portal-gnome
+anxlime     2029    1135  0 59078  6692   2 12:19 ?        00:00:00 /usr/libexec/gvfsd-metadata
+anxlime     2061    1135  0 104447 26768  3 12:19 ?        00:00:00 /usr/libexec/xdg-desktop-portal-gtk
+anxlime     2090    1135  0 158186 64904  1 12:19 ?        00:00:11 /usr/libexec/gnome-terminal-server
+anxlime     2097    2090  0  2818  5624   2 12:19 pts/0    00:00:00 bash
+root        2111       1  0 78347  7836   2 12:19 ?        00:00:00 /usr/libexec/power-profiles-daemon
+anxlime     2157    1312  0 142321 34144  3 12:20 ?        00:00:00 /usr/bin/update-notifier
+anxlime     2393    1153  0  2111  6164   0 12:22 ?        00:00:00 /usr/bin/ssh-agent -D -a /run/user/1000/keyring/.ssh
+anxlime     2416    1378  8 2985754 519536 1 12:24 ?       00:03:20 /snap/firefox/4173/usr/lib/firefox/firefox
+anxlime     2561    2416  0 52674 49504   2 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -parentBuildID 20240419214016 -prefsLen 28584 -prefMapSize 241066 -appDir /snap/firefox/4173/usr/lib/firefox/browser {9cb5e5f8-8cfd-45df-9
+anxlime     2594    2416  0 612540 129048 2 12:24 ?        00:00:02 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 1 -isForBrowser -prefsLen 28770 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/u
+anxlime     2631    1135  0 478541 26500  1 12:24 ?        00:00:00 /usr/bin/snap userd
+anxlime     2783    2416  0 608216 94784  2 12:24 ?        00:00:01 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 33253 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/u
+anxlime     3000    2416  0 52350 45516   2 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -parentBuildID 20240419214016 -sandboxingKind 0 -prefsLen 34282 -prefMapSize 241066 -appDir /snap/firefox/4173/usr/lib/firefox/browser {3c
+anxlime     3011    2416  4 779941 461172 0 12:24 ?        00:01:44 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 5 -isForBrowser -prefsLen 28573 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/u
+anxlime     3020    2416  0 597984 74452  0 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 6 -isForBrowser -prefsLen 28573 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/u
+anxlime     3105    2416  0 597983 74164  0 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 7 -isForBrowser -prefsLen 28722 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/u
+anxlime     3282    2416  0 598129 74012  3 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 8 -isForBrowser -prefsLen 28722 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/u
+anxlime     3318    2416  0 101296 87984  2 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -parentBuildID 20240419214016 -prefsLen 34431 -prefMapSize 241066 -appDir /snap/firefox/4173/usr/lib/firefox/browser {1803ff97-3dd1-4b56-8
+root        3354       2  0     0     0   3 12:27 ?        00:00:01 [kworker/u20:0-flush-8:0]
+root        3368       2  0     0     0   2 12:29 ?        00:00:00 [kworker/2:1-mm_percpu_wq]
+anxlime     3437    1378  0 734399 59536  0 12:36 ?        00:00:01 gjs /usr/share/gnome-shell/extensions/ding@rastersoft.com/app/ding.js -E -P /usr/share/gnome-shell/extensions/ding@rastersoft.com/app
+root        3785       2  0     0     0   0 12:43 ?        00:00:00 [kworker/0:0-events]
+root        3849       2  0     0     0   1 12:45 ?        00:00:00 [kworker/1:1-cgroup_free]
+root        3881       2  0     0     0   2 12:48 ?        00:00:00 [kworker/2:0-cgroup_free]
+root        3918       1  0 139123 49044  2 12:49 ?        00:00:02 /usr/libexec/fwupd/fwupd
+root        3947       2  0     0     0   3 12:49 ?        00:00:00 [kworker/3:0-events]
+root        4016       2  0     0     0   1 12:51 ?        00:00:00 [kworker/1:2H-kblockd]
+root        4036    1103  0  3820 10956   1 12:51 ?        00:00:00 sshd: anxlime [priv]
+anxlime     4080    4036  0  3860  7392   0 12:51 ?        00:00:00 sshd: anxlime@pts/1
+anxlime     4081    4080  0  2815  5596   0 12:51 pts/1    00:00:00 -bash
+root        4111       2  0     0     0   1 12:56 ?        00:00:00 [kworker/1:0-mm_percpu_wq]
+root        4112       2  0     0     0   0 12:56 ?        00:00:00 [kworker/0:1-cgroup_free]
+root        4119       2  0     0     0   3 12:57 ?        00:00:01 [kworker/3:1-events]
+root        4186       2  0     0     0   2 12:58 ?        00:00:00 [kworker/u19:3-events_unbound]
+root        4233       2  0     0     0   1 13:04 ?        00:00:00 [kworker/1:1H-kblockd]
+anxlime     4244    2097  0  2078  2340   0 13:05 pts/0    00:00:00 script ps-log.txt
+anxlime     4245    4244  0  2818  5540   0 13:05 pts/2    00:00:00 bash -i
+root        4251       2  0     0     0   0 13:05 ?        00:00:00 [kworker/u20:1-flush-8:0]
+anxlime     4252    4245 99  3443  4848   2 13:05 pts/2    00:00:00 ps -eF
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ ps -u ""$"U"S"E"R"[C -f
+[?2004lUID          PID    PPID  C STIME TTY          TIME CMD
+anxlime     1135       1  0 12:19 ?        00:00:01 /usr/lib/systemd/systemd --user
+anxlime     1136    1135  0 12:19 ?        00:00:00 (sd-pam)
+anxlime     1144    1135  0 12:19 ?        00:00:03 /usr/bin/pipewire
+anxlime     1147    1135  0 12:19 ?        00:00:00 /usr/bin/pipewire -c filter-chain.conf
+anxlime     1151    1135  0 12:19 ?        00:00:00 /usr/bin/wireplumber
+anxlime     1152    1135  0 12:19 ?        00:00:00 /usr/bin/pipewire-pulse
+anxlime     1153    1135  0 12:19 ?        00:00:00 /usr/bin/gnome-keyring-daemon --foreground --components=pkcs11,secrets --control-directory=/run/user/1000/keyring
+anxlime     1159    1135  0 12:19 ?        00:00:01 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+anxlime     1179    1135  0 12:19 ?        00:00:00 /usr/libexec/xdg-document-portal
+anxlime     1183    1124  0 12:19 tty2     00:00:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+anxlime     1190    1135  0 12:19 ?        00:00:00 /usr/libexec/xdg-permission-store
+anxlime     1196    1183  0 12:19 tty2     00:00:00 /usr/libexec/gnome-session-binary --session=ubuntu
+anxlime     1272    1135  0 12:19 ?        00:00:00 /usr/libexec/gcr-ssh-agent --base-dir /run/user/1000/gcr
+anxlime     1273    1135  0 12:19 ?        00:00:00 /usr/libexec/gnome-session-ctl --monitor
+anxlime     1287    1135  0 12:19 ?        00:00:00 /usr/libexec/gvfsd
+anxlime     1307    1135  0 12:19 ?        00:00:00 /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f
+anxlime     1312    1135  0 12:19 ?        00:00:00 /usr/libexec/gnome-session-binary --systemd-service --session=ubuntu
+anxlime     1377    1312  0 12:19 ?        00:00:00 /usr/libexec/at-spi-bus-launcher --launch-immediately
+anxlime     1378    1135 11 12:19 ?        00:05:10 /usr/bin/gnome-shell
+anxlime     1396    1377  0 12:19 ?        00:00:00 /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus
+anxlime     1428    1135  0 12:19 ?        00:00:00 /usr/libexec/at-spi2-registryd --use-gnome-session
+anxlime     1457    1135  0 12:19 ?        00:00:00 /usr/libexec/gnome-shell-calendar-server
+anxlime     1468    1135  0 12:19 ?        00:00:00 /usr/libexec/evolution-source-registry
+anxlime     1469    1135  0 12:19 ?        00:00:00 /snap/snapd-desktop-integration/157/usr/bin/snapd-desktop-integration
+anxlime     1487    1135  0 12:19 ?        00:00:00 /usr/bin/gjs -m /usr/share/gnome-shell/org.gnome.Shell.Notifications
+anxlime     1495    1135  0 12:19 ?        00:00:05 /usr/bin/ibus-daemon --panel disable
+anxlime     1497    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-a11y-settings
+anxlime     1502    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-color
+anxlime     1507    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-datetime
+anxlime     1517    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-housekeeping
+anxlime     1520    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-keyboard
+anxlime     1523    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-media-keys
+anxlime     1525    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-power
+anxlime     1528    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-print-notifications
+anxlime     1535    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-rfkill
+anxlime     1538    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-screensaver-proxy
+anxlime     1540    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-sharing
+anxlime     1541    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-smartcard
+anxlime     1544    1378  0 12:19 ?        00:00:00 /usr/bin/Xwayland :0 -rootless -noreset -accessx -core -auth /run/user/1000/.mutter-Xwaylandauth.W9CQV3 -listenfd 4 -listenfd 5 -displayfd 6 -initfd 7 -byteswappedclients
+anxlime     1545    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-sound
+anxlime     1546    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-wacom
+anxlime     1583    1312  0 12:19 ?        00:00:00 /usr/libexec/gsd-disk-utility-notify
+anxlime     1645    1312  0 12:19 ?        00:00:00 /usr/libexec/evolution-data-server/evolution-alarm-notify
+anxlime     1672    1495  0 12:19 ?        00:00:00 /usr/libexec/ibus-dconf
+anxlime     1674    1495  0 12:19 ?        00:00:03 /usr/libexec/ibus-extension-gtk3
+anxlime     1705    1135  0 12:19 ?        00:00:00 /usr/libexec/ibus-portal
+anxlime     1733    1135  0 12:19 ?        00:00:00 /usr/libexec/goa-daemon
+anxlime     1748    1135  0 12:19 ?        00:00:00 /usr/libexec/gvfs-udisks2-volume-monitor
+anxlime     1757    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-printer
+anxlime     1781    1135  0 12:19 ?        00:00:00 /usr/libexec/evolution-calendar-factory
+anxlime     1787    1135  0 12:19 ?        00:00:00 /usr/libexec/goa-identity-service
+anxlime     1795    1469  0 12:19 ?        00:00:00 /snap/snapd-desktop-integration/157/usr/bin/snapd-desktop-integration
+anxlime     1798    1135  0 12:19 ?        00:00:00 /usr/libexec/gvfs-goa-volume-monitor
+anxlime     1804    1135  0 12:19 ?        00:00:00 /usr/libexec/gvfs-mtp-volume-monitor
+anxlime     1817    1135  0 12:19 ?        00:00:00 /usr/libexec/gvfs-afc-volume-monitor
+anxlime     1833    1135  0 12:19 ?        00:00:00 /usr/libexec/gvfs-gphoto2-volume-monitor
+anxlime     1838    1135  0 12:19 ?        00:00:00 /usr/libexec/evolution-addressbook-factory
+anxlime     1865    1495  0 12:19 ?        00:00:01 /usr/libexec/ibus-engine-simple
+anxlime     1886    1135  0 12:19 ?        00:00:00 /usr/libexec/dconf-service
+anxlime     1907    1287  0 12:19 ?        00:00:00 /usr/libexec/gvfsd-trash --spawner :1.19 /org/gtk/gvfs/exec_spaw/0
+anxlime     1918    1135  0 12:19 ?        00:00:00 /usr/libexec/gsd-xsettings
+anxlime     1935    1135  0 12:19 ?        00:00:00 /usr/bin/gjs -m /usr/share/gnome-shell/org.gnome.ScreenSaver
+anxlime     1994    1135  0 12:19 ?        00:00:00 /usr/libexec/ibus-x11
+anxlime     2001    1135  0 12:19 ?        00:00:00 /usr/libexec/tracker-miner-fs-3
+anxlime     2002    1135  0 12:19 ?        00:00:00 /usr/libexec/xdg-desktop-portal
+anxlime     2005    1378  0 12:19 ?        00:00:00 /usr/libexec/mutter-x11-frames
+anxlime     2016    1135  0 12:19 ?        00:00:00 /usr/libexec/xdg-desktop-portal-gnome
+anxlime     2029    1135  0 12:19 ?        00:00:00 /usr/libexec/gvfsd-metadata
+anxlime     2061    1135  0 12:19 ?        00:00:00 /usr/libexec/xdg-desktop-portal-gtk
+anxlime     2090    1135  0 12:19 ?        00:00:11 /usr/libexec/gnome-terminal-server
+anxlime     2097    2090  0 12:19 pts/0    00:00:00 bash
+anxlime     2157    1312  0 12:20 ?        00:00:00 /usr/bin/update-notifier
+anxlime     2393    1153  0 12:22 ?        00:00:00 /usr/bin/ssh-agent -D -a /run/user/1000/keyring/.ssh
+anxlime     2416    1378  8 12:24 ?        00:03:20 /snap/firefox/4173/usr/lib/firefox/firefox
+anxlime     2561    2416  0 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -parentBuildID 20240419214016 -prefsLen 28584 -prefMapSize 241066 -appDir /snap/firefox/4173/usr/lib/firefox/browser {9cb5e5f8-8cfd-45df-9cc3-e68ad93f7fc4
+anxlime     2594    2416  0 12:24 ?        00:00:02 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 1 -isForBrowser -prefsLen 28770 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/usr/lib/firefox/o
+anxlime     2631    1135  0 12:24 ?        00:00:00 /usr/bin/snap userd
+anxlime     2783    2416  0 12:24 ?        00:00:01 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 2 -isForBrowser -prefsLen 33253 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/usr/lib/firefox/o
+anxlime     3000    2416  0 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -parentBuildID 20240419214016 -sandboxingKind 0 -prefsLen 34282 -prefMapSize 241066 -appDir /snap/firefox/4173/usr/lib/firefox/browser {3ce8ba13-776f-476b
+anxlime     3011    2416  4 12:24 ?        00:01:44 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 5 -isForBrowser -prefsLen 28573 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/usr/lib/firefox/o
+anxlime     3020    2416  0 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 6 -isForBrowser -prefsLen 28573 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/usr/lib/firefox/o
+anxlime     3105    2416  0 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 7 -isForBrowser -prefsLen 28722 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/usr/lib/firefox/o
+anxlime     3282    2416  0 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -childID 8 -isForBrowser -prefsLen 28722 -prefMapSize 241066 -jsInitLen 234952 -parentBuildID 20240419214016 -greomni /snap/firefox/4173/usr/lib/firefox/o
+anxlime     3318    2416  0 12:24 ?        00:00:00 /snap/firefox/4173/usr/lib/firefox/firefox -contentproc -parentBuildID 20240419214016 -prefsLen 34431 -prefMapSize 241066 -appDir /snap/firefox/4173/usr/lib/firefox/browser {1803ff97-3dd1-4b56-8699-9e0e1313e39b
+anxlime     3437    1378  0 12:36 ?        00:00:01 gjs /usr/share/gnome-shell/extensions/ding@rastersoft.com/app/ding.js -E -P /usr/share/gnome-shell/extensions/ding@rastersoft.com/app
+anxlime     4080    4036  0 12:51 ?        00:00:00 sshd: anxlime@pts/1
+anxlime     4081    4080  0 12:51 pts/1    00:00:00 -bash
+anxlime     4244    2097  0 13:05 pts/0    00:00:00 script ps-log.txt
+anxlime     4245    4244  0 13:05 pts/2    00:00:00 bash -i
+anxlime     4253    4245 99 13:05 pts/2    00:00:00 ps -u anxlime -f
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ top $[K&
+[?2004l[1] 4254
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ [?1l>jobs -l
+[?2004l[1]+  4254 Stopped (signal)        top
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ kill -9 4254
+[?2004l[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ kill -9 4254[5Pjobs -l
+[?2004l[1]+  4254 Killed                  top
+[?2004h]0;anxlime@codeby-lesson4: ~/codeby-devops/lesson4[01;32manxlime@codeby-lesson4[00m:[01;34m~/codeby-devops/lesson4[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-10 13:07:48+02:00 [COMMAND_EXIT_CODE="0"]
