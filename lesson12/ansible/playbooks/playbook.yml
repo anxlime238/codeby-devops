@@ -1,0 +1,24 @@
+---
+- name: One and Only playbook
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install packages
+      ansible.builtin.apt:
+        name:
+          - wget
+          - htop
+          - nginx
+        state: present
+        update_cache: true
+
+    - name: Start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Show env info
+      ansible.builtin.debug:
+        msg: "This host is in {{ env_name }} environment"
