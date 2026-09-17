@@ -1,0 +1,8 @@
+---
+- name: Installing MySql on Debian
+  import_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: Installing MySql on Redhat
+  import_tasks: redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
