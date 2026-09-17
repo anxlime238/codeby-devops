@@ -1,0 +1,8 @@
+---
+- name: Install and Configure WordPress
+  hosts: wordpress
+  become: true
+
+  roles:
+    - apache
+    - mysql

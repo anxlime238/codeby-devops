@@ -1,0 +1,8 @@
+---
+- name: Installing Apache on Debian
+  import_tasks: debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: Installing Apache on Redhat
+  import_tasks: redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'
