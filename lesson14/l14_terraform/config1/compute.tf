@@ -29,8 +29,9 @@ resource "yandex_vpc_address" "vm2_ip" {
 }
 
 resource "yandex_compute_instance" "vm-1" {
-  name = "terraform1"
-
+  name        = "terraform1"
+  zone        = "ru-central1-d"
+  platform_id = "standard-v3"
   resources {
     cores  = 2
     memory = 2
@@ -71,8 +72,9 @@ resource "yandex_compute_instance" "vm-1" {
 }
 
 resource "yandex_compute_instance" "vm-2" {
-  name = "terraform2"
-
+  name        = "terraform2"
+  zone        = "ru-central1-d"
+  platform_id = "standard-v3"
   resources {
     cores  = 2
     memory = 2
