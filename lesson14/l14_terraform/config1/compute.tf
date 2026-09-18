@@ -38,7 +38,8 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   boot_disk {
-    disk_id = yandex_compute_disk.boot-disk-1.id
+    disk_id     = yandex_compute_disk.boot-disk-1.id
+    auto_delete = false
   }
 
   network_interface {
@@ -82,7 +83,8 @@ resource "yandex_compute_instance" "vm-2" {
   }
 
   boot_disk {
-    disk_id = yandex_compute_disk.boot-disk-2.id
+    disk_id     = yandex_compute_disk.boot-disk-2.id
+    auto_delete = false
   }
 
   network_interface {
