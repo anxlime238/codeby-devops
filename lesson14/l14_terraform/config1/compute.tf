@@ -56,7 +56,14 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   provisioner "local-exec" {
-    command = "sleep 120 && ssh -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 ubuntu@${yandex_vpc_address.vm1_ip.external_ipv4_address[0].address} \"sudo apt update && sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx\""
+    command = <<-EOT
+      sleep 180
+      ssh -o StrictHostKeyChecking=no \
+          -o IdentitiesOnly=yes \
+          -i ~/.ssh/id_ed25519 \
+          ubuntu@${yandex_vpc_address.vm1_ip.external_ipv4_address[0].address} \
+          'sudo apt update && sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx'
+    EOT
   }
 }
 
@@ -89,6 +96,13 @@ resource "yandex_compute_instance" "vm-2" {
   }
 
   provisioner "local-exec" {
-    command = "sleep 120 && ssh -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 ubuntu@${yandex_vpc_address.vm2_ip.external_ipv4_address[0].address} \"sudo apt update && sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx\""
+    command = <<-EOT
+      sleep 120
+      ssh -o StrictHostKeyChecking=no \
+          -o IdentitiesOnly=yes \
+          -i ~/.ssh/id_ed25519 \
+          ubuntu@${yandex_vpc_address.vm2_ip.external_ipv4_address[0].address} \
+          'sudo apt update && sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx'
+    EOT
   }
 }
