@@ -59,6 +59,7 @@ resource "yandex_compute_instance" "vm-1" {
     user        = "ubuntu"
     private_key = file("~/.ssh/id_ed25519")
     host        = yandex_vpc_address.vm1_ip.external_ipv4_address[0].address
+    timeout     = "10m"
   }
 
   provisioner "remote-exec" {
@@ -103,6 +104,7 @@ resource "yandex_compute_instance" "vm-2" {
     user        = "ubuntu"
     private_key = file("~/.ssh/id_ed25519")
     host        = yandex_vpc_address.vm2_ip.external_ipv4_address[0].address
+    timeout     = "10m"
   }
 
   provisioner "remote-exec" {
