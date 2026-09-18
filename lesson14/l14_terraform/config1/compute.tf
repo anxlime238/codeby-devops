@@ -55,21 +55,8 @@ resource "yandex_compute_instance" "vm-1" {
     ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
   }
 
-  connection {
-    type        = "ssh"
-    user        = "ubuntu"
-    private_key = file("~/.ssh/id_ed25519")
-    host        = yandex_vpc_address.vm1_ip.external_ipv4_address[0].address
-    timeout     = "10m"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo apt update",
-      "sudo apt install -y nginx",
-      "sudo systemctl enable nginx",
-      "sudo systemctl start nginx"
-    ]
+  provisioner "local-exec" {
+    command = "sleep 120 && ssh -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 ubuntu@${yandex_vpc_address.vm1_ip.external_ipv4_address[0].address} \"sudo apt update && sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx\""
   }
 }
 
@@ -101,21 +88,7 @@ resource "yandex_compute_instance" "vm-2" {
     ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
   }
 
-  connection {
-    type        = "ssh"
-    user        = "ubuntu"
-    private_key = file("~/.ssh/id_ed25519")
-    host        = yandex_vpc_address.vm2_ip.external_ipv4_address[0].address
-    timeout     = "10m"
+  provisioner "local-exec" {
+    command = "sleep 120 && ssh -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 ubuntu@${yandex_vpc_address.vm2_ip.external_ipv4_address[0].address} \"sudo apt update && sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx\""
   }
-
-  provisioner "remote-exec" {
-    inline = [
-      "sudo apt update",
-      "sudo apt install -y nginx",
-      "sudo systemctl enable nginx",
-      "sudo systemctl start nginx"
-    ]
-  }
-
 }
