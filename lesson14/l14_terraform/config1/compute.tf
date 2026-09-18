@@ -29,9 +29,10 @@ resource "yandex_vpc_address" "vm2_ip" {
 }
 
 resource "yandex_compute_instance" "vm-1" {
-  name        = "terraform1"
-  zone        = "ru-central1-d"
-  platform_id = "standard-v3"
+  name                      = "terraform1"
+  zone                      = "ru-central1-d"
+  platform_id               = "standard-v3"
+  allow_stopping_for_update = true
   resources {
     cores  = 2
     memory = 2
@@ -52,25 +53,21 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+    user-data = file("${path.module}/meta.txt")
   }
 
   provisioner "local-exec" {
-    command = <<-EOT
-      sleep 180
-      ssh -o StrictHostKeyChecking=no \
-          -o IdentitiesOnly=yes \
-          -i ~/.ssh/id_ed25519 \
-          ubuntu@${yandex_vpc_address.vm1_ip.external_ipv4_address[0].address} \
-          'sudo apt update && sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx'
-    EOT
+    interpreter = ["C:/Program Files/Git/bin/bash.exe", "-c"]
+
+    command = "sleep 90 && ssh -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 anxlime@${yandex_vpc_address.vm1_ip.external_ipv4_address[0].address} 'sudo apt update && sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx'"
   }
 }
 
 resource "yandex_compute_instance" "vm-2" {
-  name        = "terraform2"
-  zone        = "ru-central1-d"
-  platform_id = "standard-v3"
+  name                      = "terraform2"
+  zone                      = "ru-central1-d"
+  platform_id               = "standard-v3"
+  allow_stopping_for_update = true
   resources {
     cores  = 2
     memory = 2
@@ -92,17 +89,12 @@ resource "yandex_compute_instance" "vm-2" {
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+    user-data = file("${path.module}/meta.txt")
   }
 
   provisioner "local-exec" {
-    command = <<-EOT
-      sleep 120
-      ssh -o StrictHostKeyChecking=no \
-          -o IdentitiesOnly=yes \
-          -i ~/.ssh/id_ed25519 \
-          ubuntu@${yandex_vpc_address.vm2_ip.external_ipv4_address[0].address} \
-          'sudo apt update && sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx'
-    EOT
+    interpreter = ["C:/Program Files/Git/bin/bash.exe", "-c"]
+
+    command = "sleep 180 && ssh -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -i ~/.ssh/id_ed25519 anxlime@${yandex_vpc_address.vm2_ip.external_ipv4_address[0].address} 'sudo apt update && sudo apt install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx'"
   }
 }
