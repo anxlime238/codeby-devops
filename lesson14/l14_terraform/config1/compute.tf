@@ -14,6 +14,20 @@ resource "yandex_compute_disk" "boot-disk-2" {
   image_id = "fd83oqecknfqpm6pnvur"
 }
 
+resource "yandex_vpc_address" "vm1_ip" {
+  external_ipv4_address {
+    zone_id = "ru-central1-d"
+  }
+}
+
+resource "yandex_vpc_address" "vm2_ip" {
+  name = "terraform2-ip"
+
+  external_ipv4_address {
+    zone_id = "ru-central1-d"
+  }
+}
+
 resource "yandex_compute_instance" "vm-1" {
   name = "terraform1"
 
@@ -27,8 +41,9 @@ resource "yandex_compute_instance" "vm-1" {
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.public_network.id
-    nat       = true
+    subnet_id      = yandex_vpc_subnet.public_network.id
+    nat            = true
+    nat_ip_address = yandex_vpc_address.vm1_ip.external_ipv4_address[0].address
     security_group_ids = [
       yandex_vpc_security_group.public_sg.id
     ]
@@ -42,7 +57,7 @@ resource "yandex_compute_instance" "vm-1" {
     type        = "ssh"
     user        = "ubuntu"
     private_key = file("~/.ssh/id_ed25519")
-    host        = self.network_interface[0].nat_ip_address
+    host        = yandex_vpc_address.vm1_ip.external_ipv4_address[0].address
   }
 
   provisioner "remote-exec" {
@@ -68,8 +83,9 @@ resource "yandex_compute_instance" "vm-2" {
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.private_network.id
-    nat       = true
+    subnet_id      = yandex_vpc_subnet.private_network.id
+    nat            = true
+    nat_ip_address = yandex_vpc_address.vm2_ip.external_ipv4_address[0].address
     security_group_ids = [
       yandex_vpc_security_group.private_sg.id
     ]
@@ -84,7 +100,7 @@ resource "yandex_compute_instance" "vm-2" {
     type        = "ssh"
     user        = "ubuntu"
     private_key = file("~/.ssh/id_ed25519")
-    host        = self.network_interface[0].nat_ip_address
+    host        = yandex_vpc_address.vm2_ip.external_ipv4_address[0].address
   }
 
   provisioner "remote-exec" {
