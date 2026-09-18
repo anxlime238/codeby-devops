@@ -1,0 +1,106 @@
+# yandex_compute_instance.vm-for-import:
+resource "yandex_compute_instance" "vm-for-import" {
+    created_at                = "2026-09-18T16:05:32Z"
+    description               = [90mnull[0m[0m
+    folder_id                 = "b1gijgs8kqqgebep30gt"
+    fqdn                      = "vm-for-import.ru-central1.internal"
+    gpu_cluster_id            = [90mnull[0m[0m
+    hardware_generation       = [
+        {
+            generation2_features = []
+            legacy_features      = [
+                {
+                    pci_topology = "PCI_TOPOLOGY_V2"
+                },
+            ]
+        },
+    ]
+    hostname                  = "vm-for-import"
+    id                        = "fv4ejkadjc134er48plg"
+    labels                    = {}
+    maintenance_grace_period  = [90mnull[0m[0m
+    metadata                  = {
+        "private_ui_created_from" = "console"
+        "ssh-keys"                = "anxlime:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICofWOtFqpPNlw4r+A3+eYd9mauOTEuzzL2PBAC9B92H anxlime@gmail.com"
+        "user-data"               = <<-EOT
+            #cloud-config
+            datasource:
+             Ec2:
+              strict_id: false
+            ssh_pwauth: no
+            users:
+            - name: anxlime
+              sudo: ALL=(ALL) NOPASSWD:ALL
+              shell: /bin/bash
+              ssh_authorized_keys:
+              - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICofWOtFqpPNlw4r+A3+eYd9mauOTEuzzL2PBAC9B92H anxlime@gmail.com
+        EOT
+    }
+    name                      = "vm-for-import"
+    network_acceleration_type = "standard"
+    platform_id               = "standard-v3"
+    reserved_instance_pool_id = [90mnull[0m[0m
+    service_account_id        = [90mnull[0m[0m
+    status                    = "running"
+    zone                      = "ru-central1-d"
+
+    boot_disk {
+        auto_delete = true
+        device_name = "fv474eloian9f28odvhn"
+        disk_id     = "fv474eloian9f28odvhn"
+        mode        = "READ_WRITE"
+
+        initialize_params {
+            block_size  = 4096
+            description = [90mnull[0m[0m
+            image_id    = "fd808st5ai303d6i8f06"
+            kms_key_id  = [90mnull[0m[0m
+            name        = "disk-ubuntu-24-04-lts-1789747296410"
+            size        = 20
+            snapshot_id = [90mnull[0m[0m
+            type        = "network-ssd"
+        }
+    }
+
+    metadata_options {
+        aws_v1_http_endpoint = 1
+        aws_v1_http_token    = 2
+        aws_v2_http_endpoint = 1
+        aws_v2_http_token    = 1
+        gce_http_endpoint    = 1
+        gce_http_token       = 1
+    }
+
+    network_interface {
+        index              = 0
+        ip_address         = "10.10.1.31"
+        ipv4               = true
+        ipv6               = false
+        ipv6_address       = [90mnull[0m[0m
+        mac_address        = "d0:0d:e9:d1:4d:9b"
+        nat                = true
+        nat_ip_address     = "130.193.58.174"
+        nat_ip_version     = "IPV4"
+        security_group_ids = [
+            "enp4k6d5af8h6hj1shno",
+        ]
+        subnet_id          = "fl8nmvc7il2jvrr55ibt"
+    }
+
+    placement_policy {
+        host_affinity_rules       = []
+        placement_group_id        = [90mnull[0m[0m
+        placement_group_partition = 0
+    }
+
+    resources {
+        core_fraction = 100
+        cores         = 2
+        gpus          = 0
+        memory        = 2
+    }
+
+    scheduling_policy {
+        preemptible = false
+    }
+}
