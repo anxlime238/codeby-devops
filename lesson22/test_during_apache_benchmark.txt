@@ -1,0 +1,9 @@
+NAME        REFERENCE              TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+wordpress   Deployment/wordpress   cpu: <unknown>/60%   1         5         1          3m13s
+wordpress   Deployment/wordpress   cpu: 5%/60%          1         5         1          3m30s
+wordpress   Deployment/wordpress   cpu: 1%/60%          1         5         1          4m30s
+wordpress   Deployment/wordpress   cpu: 495%/60%        1         5         1          5m31s
+wordpress   Deployment/wordpress   cpu: 495%/60%        1         5         4          5m46s
+wordpress   Deployment/wordpress   cpu: 495%/60%        1         5         5          6m1s
+wordpress   Deployment/wordpress   cpu: 85%/60%         1         5         5          6m31s
+wordpress   Deployment/wordpress   cpu: 2%/60%          1         5         5          7m31s
