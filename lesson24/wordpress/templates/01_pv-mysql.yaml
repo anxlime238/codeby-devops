@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Release.Name }}-mysql-pv
+  labels:
+    app: {{ include "wordpress.mysqlName" . }}
+spec:
+  capacity:
+    storage: {{ .Values.mysql.storage.size }}
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: {{ .Values.storageClass.reclaimPolicy }}
+  storageClassName: {{ .Release.Name }}-{{ .Values.storageClass.name }}
+  local:
+    path: {{ .Values.mysql.storage.path | quote }}
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - {{ .Values.mysql.storage.node | quote }}

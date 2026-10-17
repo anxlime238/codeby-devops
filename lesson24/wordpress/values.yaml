@@ -1,0 +1,41 @@
+mysql:
+  image: mysql:latest
+  replicas: 1
+  port: 3306
+  database: wordpress
+  user: user
+  rootPassword: "1234"
+  password: "1234"
+  storage:
+    size: 1Gi
+    path: /mnt/data/mysql
+    node: minikube
+    mountPath: /var/lib/mysql
+wordpress:
+  image: wordpress:latest
+  replicas: 1
+  port: 80
+  storage:
+    size: 1Gi
+    path: /mnt/data/wordpress
+    node: minikube-m02
+    mountPath: /var/www/html
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 256Mi
+storageClass:
+  name: local-storage
+  reclaimPolicy: Retain
+hpa:
+  minReplicas: 1
+  maxReplicas: 5
+  cpuUtilization: 60
+ingress:
+  enabled: true
+  className: nginx
+  host: wordpress.local
+  path: /

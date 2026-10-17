@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Release.Name }}-wordpress-pv
+  labels:
+    app: {{ include "wordpress.wordpressName" . }}
+spec:
+  capacity:
+    storage: {{ .Values.wordpress.storage.size }}
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: {{ .Values.storageClass.reclaimPolicy }}
+  storageClassName: {{ .Release.Name }}-{{ .Values.storageClass.name }}
+  local:
+    path: {{ .Values.wordpress.storage.path | quote }}
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - {{ .Values.wordpress.storage.node | quote }}
