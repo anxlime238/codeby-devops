@@ -1,0 +1,298 @@
+Started by user Антипова Анна Андреевна
+
+ > git rev-parse --resolve-git-dir /var/jenkins_home/caches/git-5a22faf3dd8495f7f11c1489a804e06e/.git # timeout=10
+Setting origin to https://github.com/anxlime238/codeby-devops.git
+ > git config remote.origin.url https://github.com/anxlime238/codeby-devops.git # timeout=10
+Fetching origin...
+Fetching upstream changes from origin
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git config --get remote.origin.url # timeout=10
+ > git fetch --no-tags --force --progress -- origin +refs/heads/*:refs/remotes/origin/* # timeout=10
+Seen branch in repository origin/branch_a
+Seen branch in repository origin/branch_b
+Seen branch in repository origin/branch_c
+Seen branch in repository origin/lesson10
+Seen branch in repository origin/lesson11
+Seen branch in repository origin/lesson12
+Seen branch in repository origin/lesson13
+Seen branch in repository origin/lesson14
+Seen branch in repository origin/lesson15
+Seen branch in repository origin/lesson16
+Seen branch in repository origin/lesson17
+Seen branch in repository origin/lesson18
+Seen branch in repository origin/lesson19
+Seen branch in repository origin/lesson20
+Seen branch in repository origin/lesson21
+Seen branch in repository origin/lesson22
+Seen branch in repository origin/lesson23
+Seen branch in repository origin/lesson24
+Seen branch in repository origin/lesson25
+Seen branch in repository origin/lesson26
+Seen branch in repository origin/lesson3
+Seen branch in repository origin/lesson4
+Seen branch in repository origin/lesson5
+Seen branch in repository origin/lesson6
+Seen branch in repository origin/lesson7
+Seen branch in repository origin/lesson8
+Seen branch in repository origin/lesson9
+Seen branch in repository origin/main
+Seen 28 remote branches
+Obtained lesson26/Jenkinsfile from 22fd94fc981d5332695506e875652fcb97419cbb
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on maven-agent
+ in /home/jenkins/workspace/lesson26_lesson26
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Fetching changes from the remote Git repository
+Fetching without tags
+ > git rev-parse --resolve-git-dir /home/jenkins/workspace/lesson26_lesson26/.git # timeout=10
+ > git config remote.origin.url https://github.com/anxlime238/codeby-devops.git # timeout=10
+Fetching upstream changes from https://github.com/anxlime238/codeby-devops.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.54.0'
+ > git fetch --no-tags --force --progress -- https://github.com/anxlime238/codeby-devops.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+Checking out Revision 22fd94fc981d5332695506e875652fcb97419cbb (lesson26)
+Commit message: "change only hello-devops"
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 22fd94fc981d5332695506e875652fcb97419cbb # timeout=10
+ > git rev-list --no-walk 3692ffeb2ef9b7cb7824bfc01b4306695ad7cee3 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Applications)
+[Pipeline] parallel
+[Pipeline] { (Branch: Hello World)
+[Pipeline] { (Branch: Hello Jenkins)
+[Pipeline] { (Branch: Hello Devops)
+[Pipeline] stage
+[Pipeline] { (Hello World)
+[Pipeline] stage
+[Pipeline] { (Hello Jenkins)
+[Pipeline] stage
+[Pipeline] { (Hello Devops)
+Stage "Hello World" skipped due to when conditional
+[Pipeline] getContext
+Stage "Hello Jenkins" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] stage
+[Pipeline] { (Build Hello World)
+[Pipeline] stage
+[Pipeline] { (Build Hello Jenkins)
+Stage "Hello World" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+Stage "Hello Jenkins" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] tool
+[Pipeline] // stage
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test Hello World)
+[Pipeline] stage
+[Pipeline] { (Test Hello Jenkins)
+[Pipeline] envVarsForTool
+Stage "Hello World" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+Stage "Hello Jenkins" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] // stage
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy Hello World)
+[Pipeline] stage
+[Pipeline] { (Deploy Hello Jenkins)
+[Pipeline] stage
+[Pipeline] { (Build Hello Devops)
+Stage "Hello World" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+Stage "Hello Jenkins" skipped due to when conditional
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] }
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] dir
+Running in /home/jenkins/workspace/lesson26_lesson26/lesson26/hello-devops
+[Pipeline] {
+[Pipeline] sh
++ mvn clean package -DskipTests
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.mycompany.app:my-app >----------------------
+[INFO] Building my-app 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ my-app ---
+[INFO] Deleting /home/jenkins/workspace/lesson26_lesson26/lesson26/hello-devops/target
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-maven) @ my-app ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ my-app ---
+[INFO] skip non existing resourceDirectory /home/jenkins/workspace/lesson26_lesson26/lesson26/hello-devops/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ my-app ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ my-app ---
+[INFO] skip non existing resourceDirectory /home/jenkins/workspace/lesson26_lesson26/lesson26/hello-devops/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ my-app ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug release 17] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ my-app ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- jar:3.5.1:jar (default-jar) @ my-app ---
+[INFO] Building jar: /home/jenkins/workspace/lesson26_lesson26/lesson26/hello-devops/target/my-app-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.610 s
+[INFO] Finished at: 2026-10-19T13:50:38Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test Hello Devops)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] dir
+Running in /home/jenkins/workspace/lesson26_lesson26/lesson26/hello-devops
+[Pipeline] {
+[Pipeline] sh
++ mvn test
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.mycompany.app:my-app >----------------------
+[INFO] Building my-app 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.6.3:enforce (enforce-maven) @ my-app ---
+[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[INFO] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ my-app ---
+[INFO] skip non existing resourceDirectory /home/jenkins/workspace/lesson26_lesson26/lesson26/hello-devops/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:compile (default-compile) @ my-app ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ my-app ---
+[INFO] skip non existing resourceDirectory /home/jenkins/workspace/lesson26_lesson26/lesson26/hello-devops/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.16.0:testCompile (default-testCompile) @ my-app ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ my-app ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.mycompany.app.AppTest
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.129 s <<< FAILURE! -- in com.mycompany.app.AppTest
+[ERROR] com.mycompany.app.AppTest.testAppMessage -- Time elapsed: 0.020 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Hello Devops!> but was: <Hello Devops! I will fail!>
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1199)
+	at com.mycompany.app.AppTest.testAppMessage(AppTest.java:23)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   AppTest.testAppMessage:23 expected: <Hello Devops!> but was: <Hello Devops! I will fail!>
+[INFO] 
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.850 s
+[INFO] Finished at: 2026-10-19T13:50:43Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.2.5:test (default-test) on project my-app: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/jenkins/workspace/lesson26_lesson26/lesson26/hello-devops/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy Hello Devops)
+Stage "Deploy Hello Devops" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+Failed in branch Hello Devops
+[Pipeline] // parallel
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE
+
