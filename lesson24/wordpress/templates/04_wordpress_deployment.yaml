@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "wordpress.wordpressName" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.wordpress.replicas }}
+  selector:
+    matchLabels:
+      app: {{ include "wordpress.wordpressName" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "wordpress.wordpressName" . }}
+    spec:
+      containers:
+        - name: wordpress
+          image: {{ .Values.wordpress.image | quote }}
+          ports:
+            - containerPort: {{ .Values.wordpress.port }}
+          env:
+            - name: WORDPRESS_DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}-config
+                  key: WORDPRESS_DB_HOST
+            - name: WORDPRESS_DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}-config
+                  key: WORDPRESS_DB_NAME
+            - name: WORDPRESS_DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Release.Name }}-config
+                  key: WORDPRESS_DB_USER
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Release.Name }}-secret
+                  key: WORDPRESS_DB_PASSWORD
+          resources:
+            requests:
+              cpu: {{ .Values.wordpress.resources.requests.cpu | quote }}
+              memory: {{ .Values.wordpress.resources.requests.memory | quote }}
+            limits:
+              cpu: {{ .Values.wordpress.resources.limits.cpu | quote }}
+              memory: {{ .Values.wordpress.resources.limits.memory | quote }}
+          volumeMounts:
+            - name: wordpress-storage
+              mountPath: {{ .Values.wordpress.storage.mountPath | quote }}
+      volumes:
+        - name: wordpress-storage
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-wordpress-pvc
